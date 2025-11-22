@@ -141,7 +141,7 @@ use Carbon\Carbon;
     @if(session('error'))
     <div style="background:#ffd6d6; padding:10px; margin-bottom:15px; border-radius:5px; border-left:5px solid red;">
         {{ session('error') }}
-    </div
+    </div>
     @endif
     @if ($errors->any())
         <div style="background:#ffd6d6; padding:10px; margin-bottom:15px; border-radius:5px; border-left:5px solid red;">
