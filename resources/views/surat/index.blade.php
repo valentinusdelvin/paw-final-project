@@ -13,9 +13,6 @@ use Carbon\Carbon;
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 
 <style> 
-    /* ================================
-        GLOBAL RESET & BASE STYLING
-        ================================ */
         /* RESET dasar biar semua elemen mulai dari nol */
         * {
             box-sizing: border-box; /* Hitung padding+border biar layout gak geser */
