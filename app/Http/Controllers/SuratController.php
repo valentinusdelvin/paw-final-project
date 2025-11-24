@@ -20,7 +20,7 @@ class SuratController extends Controller
     {
         // Validasi input dari user
         $request->validate([
-            'NIK' => 'required|size:16|exists:warga,NIK',
+            'NIK' => 'required|size:16',
             'Nama_Lengkap' => 'required|string|max:100',
             'Jenis_Surat' => 'required',
             'Keterangan' => 'nullable|string',
@@ -31,13 +31,27 @@ class SuratController extends Controller
             'Jenis_Surat.required' => 'Silakan pilih jenis surat yang ingin diajukan.',
         ]);
         
-        // Ambil data warga berdasarkan NIK
+        // Cek apakah NIK terdaftar
         $warga = Warga::where('NIK', $request->NIK)->first();
 
-        // Cek apakah Nama_Lengkap sesuai dengan NIK
-        if ($warga->Nama !== $request->Nama_Lengkap) {
+        // Cek apakah nama terdaftar di pendataan
+        $cekNama = Warga::where('Nama', $request->Nama_Lengkap)->exists();
+
+        // Jika dua-duanya tidak terdaftar
+        if (!$warga && !$cekNama) {
+            return back()->with('error', 'Nama dan NIK tidak ditemukan dalam pendataan warga.')->withInput();
+        }
+
+        // Jika nama ada di database tapi NIK salah
+        if ($cekNama && !$warga) {
+            return back()->with('error', 'NIK tidak sesuai dengan nama yang terdaftar.')->withInput();
+        }
+
+        // Jika NIK ada tapi nama tidak sesuai
+        if ($warga && $warga->Nama !== $request->Nama_Lengkap) {
             return back()->with('error', 'Nama tidak sesuai dengan NIK yang terdaftar.')->withInput();
         }
+
 
         // Simpan data surat ke database
         Surat::create([
