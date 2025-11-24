@@ -21,10 +21,11 @@ Route::get('/', function () {
     return view('dashboard.index');
 });
 
-// Halaman daftar surat (tampilan tabel)
+// Tampilkan halaman index (form + tabel)
 Route::get('/surat', [SuratController::class, 'index'])->name('surat.index');
-Route::get('/surat/pengajuan', [SuratController::class, 'create'])->name('surat.create');
-Route::post('/surat/pengajuan', [SuratController::class, 'store'])->name('surat.store');
+// Simpan data pengajuan surat
+Route::post('/surat', [SuratController::class, 'store'])->name('surat.store');
+
 
 Route::get('/warga/tambah', [DataController::class, 'createWarga']);
 Route::post('/warga', [DataController::class, 'storeWarga']);
