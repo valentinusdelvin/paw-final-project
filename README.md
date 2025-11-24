@@ -38,6 +38,12 @@ Jalankan migrasi database (jika diperlukan):
 php artisan migrate
 ```
 
+### 6. Pembuatan Application Key
+Jalankan command berikut untuk generate application key sehingga website dapat dijalankan
+```bash
+php artisan key:generate
+```
+
 ---
 
 ## 🧑‍💻 Alur Pengerjaan

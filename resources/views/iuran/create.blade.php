@@ -20,7 +20,7 @@
         </div>
     @endif
 
-    <form method="POST" action="/iuran">
+    <form action="/iuran" method="POST" enctype="multipart/form-data">
         @csrf
 
         <label for="NIK">Pilih Warga (NIK):</label><br>
