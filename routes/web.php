@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DataController;
+use App\Http\Controllers\IuranController;
 use App\Http\Controllers\SuratController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AduanController;
@@ -21,16 +22,17 @@ Route::get('/', function () {
     return view('dashboard.index');
 });
 
-// Halaman daftar surat (tampilan tabel)
+// Tampilkan halaman index (form + tabel)
 Route::get('/surat', [SuratController::class, 'index'])->name('surat.index');
-Route::get('/surat/pengajuan', [SuratController::class, 'create'])->name('surat.create');
-Route::post('/surat/pengajuan', [SuratController::class, 'store'])->name('surat.store');
+// Simpan data pengajuan surat
+Route::post('/surat', [SuratController::class, 'store'])->name('surat.store');
+
 
 Route::get('/warga/tambah', [DataController::class, 'createWarga']);
 Route::post('/warga', [DataController::class, 'storeWarga']);
 
-Route::get('/iuran/tambah', [DataController::class, 'createIuran']);
-Route::post('/iuran', [DataController::class, 'storeIuran']);
+Route::get('/iuran/tambah', [IuranController::class, 'createIuran']);
+Route::post('/iuran', [IuranController::class, 'storeIuran']);
 
 // Routes Aduan
 Route::resource('aduan', AduanController::class);

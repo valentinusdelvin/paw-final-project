@@ -185,7 +185,7 @@ use Carbon\Carbon;
         <div style="background:#ffd6d6; padding:10px; margin-bottom:15px; border-radius:5px; border-left:5px solid red;">
             <ul style="margin:0; padding-left:18px;">
                 @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
+                    {{ $error }}
                 @endforeach
             </ul>
         </div>

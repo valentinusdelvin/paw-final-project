@@ -10,6 +10,7 @@ class Surat extends Model
     use HasFactory;
     protected $table = 'surats';
 
+    // Kolom yang bisa diisi
     protected $fillable = [
         'NIK',
         'Nama_Lengkap',
@@ -18,6 +19,7 @@ class Surat extends Model
         'Tanggal_Pengajuan',
     ];
 
+    // Relasi ke model Warga
     public function warga()
     {
         return $this->belongsTo(Warga::class, 'NIK', 'NIK');

@@ -8,21 +8,19 @@ use App\Models\Warga;
 
 class SuratController extends Controller
 {
+    // Menampilkan semua surat
     public function index()
     {
-        $surat = Surat::all();
-        return view('surat.index', compact('surat'));
+        $surat = Surat::all(); // Ambil semua data dari tabel surats
+        return view('surat.index', compact('surat')); // Kirim ke index.blade.php
     }
 
-    public function create()
-    {
-        return view('surat.create');
-    }
-
+    // Menyimpan surat baru ke database
     public function store(Request $request)
     {
+        // Validasi input dari user
         $request->validate([
-            'NIK' => 'required|size:16|exists:warga,NIK',
+            'NIK' => 'required|size:16',
             'Nama_Lengkap' => 'required|string|max:100',
             'Jenis_Surat' => 'required',
             'Keterangan' => 'nullable|string',
@@ -32,13 +30,30 @@ class SuratController extends Controller
             'NIK.exists' => 'NIK tidak ditemukan dalam data warga.',
             'Jenis_Surat.required' => 'Silakan pilih jenis surat yang ingin diajukan.',
         ]);
-
+        
+        // Cek apakah NIK terdaftar
         $warga = Warga::where('NIK', $request->NIK)->first();
 
-        if ($warga->Nama !== $request->Nama_Lengkap) {
+        // Cek apakah nama terdaftar di pendataan
+        $cekNama = Warga::where('Nama', $request->Nama_Lengkap)->exists();
+
+        // Jika dua-duanya tidak terdaftar
+        if (!$warga && !$cekNama) {
+            return back()->with('error', 'Nama dan NIK tidak ditemukan dalam pendataan warga.')->withInput();
+        }
+
+        // Jika nama ada di database tapi NIK salah
+        if ($cekNama && !$warga) {
+            return back()->with('error', 'NIK tidak sesuai dengan nama yang terdaftar.')->withInput();
+        }
+
+        // Jika NIK ada tapi nama tidak sesuai
+        if ($warga && $warga->Nama !== $request->Nama_Lengkap) {
             return back()->with('error', 'Nama tidak sesuai dengan NIK yang terdaftar.')->withInput();
         }
 
+
+        // Simpan data surat ke database
         Surat::create([
             'NIK' => $request->NIK,
             'Nama_Lengkap' => $request->Nama_Lengkap,
@@ -47,6 +62,7 @@ class SuratController extends Controller
             'Tanggal_Pengajuan' => now(),
         ]);
 
+        // Redirect ke halaman index surat dengan pesan sukses
         return redirect()->route('surat.index')->with('success', 'Pengajuan surat berhasil direkam!');
     }
 }
