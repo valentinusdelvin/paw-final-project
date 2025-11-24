@@ -42,15 +42,16 @@ class SuratController extends Controller
             return back()->with('error', 'Nama dan NIK tidak ditemukan dalam pendataan warga.')->withInput();
         }
 
+        // Jika nama ada di database tapi NIK salah
+        if ($cekNama && !$warga) {
+            return back()->with('error', 'NIK tidak sesuai dengan nama yang terdaftar.')->withInput();
+        }
+
         // Jika NIK ada tapi nama tidak sesuai
         if ($warga && $warga->Nama !== $request->Nama_Lengkap) {
             return back()->with('error', 'Nama tidak sesuai dengan NIK yang terdaftar.')->withInput();
         }
 
-        // Jika nama tidak ada sama sekali
-        if (!$cekNama) {
-            return back()->with('error', 'Nama tidak ditemukan dalam pendataan warga.')->withInput();
-        }
 
         // Simpan data surat ke database
         Surat::create([
