@@ -63,6 +63,60 @@
         line-height: 1.4;
     }
 
+    /* Sponsor Section */
+    .sponsor-wrapper {
+        margin-top: 50px;
+        text-align: center;
+    }
+
+    /* Sponsor Text (static) */
+    .sponsor-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: #0A7968;
+        opacity: 0.9;
+        margin-bottom: 10px;
+        letter-spacing: 1.2px;
+    }
+
+    /* Divider */
+    .sponsor-line {
+        width: 180px;
+        height: 3px;
+        background: #0A7968;
+        margin: 6px auto 20px auto;
+        border-radius: 3px;
+    }
+
+    /* Logo slider */
+    .logo-slider {
+        overflow: hidden;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .logo-track {
+        display: flex;
+        gap: 40px;
+        animation: slideLogo 12s linear infinite;
+    }
+
+    .logo-track img {
+        width: 170px;
+        opacity: 0.85;
+        transition: 0.3s ease;
+        filter: drop-shadow(0 2px 6px rgba(0,0,0,0.12));
+    }
+
+    .logo-track img:hover {
+        transform: scale(1.07);
+        opacity: 1;
+    }
+
+    @keyframes slideLogo {
+        from { transform: translateX(100%); }
+        to { transform: translateX(-100%); }
+    }
 
 
 </style>
@@ -116,6 +170,68 @@
             </div>
         </div>
 
+        <div class="sponsor-wrapper">
+            <div class="sponsor-title">Thanks to our Database Sponsor</div>
+            <div class="sponsor-line"></div>
+
+            <div class="logo-slider">
+                <div class="logo-track">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                    <img src="https://bccfilkom.ub.ac.id/static/assets/images/BCC-Logo.svg">
+                </div>
+            </div>
+        </div>
     </div>
 
 </body>
