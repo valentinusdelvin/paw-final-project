@@ -95,7 +95,7 @@
             </div>
 
             <!-- punya kelompok 2 -->
-            <div class="card">
+            <div class="card" onclick="window.location.href='{{ route('aduan.index') }}'">
                 <h3>Aduan Warga</h3>
                 <p>Terima dan tindaklanjuti aduan warga untuk meningkatkan kualitas lingkungan RT.</p>
             </div>
@@ -110,7 +110,7 @@
             </div>
 
             <!-- punya kelompok 2 -->
-            <div class="card">
+            <div class="card" onclick="window.location.href='{{ route('pengumuman.index') }}'">
                 <h3>Pengumuman Warga</h3>
                 <p>Publikasikan informasi penting dan pengumuman untuk seluruh warga RT.</p>
             </div>

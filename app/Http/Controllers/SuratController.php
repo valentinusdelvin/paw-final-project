@@ -8,19 +8,17 @@ use App\Models\Warga;
 
 class SuratController extends Controller
 {
+    // Menampilkan semua surat
     public function index()
     {
-        $surat = Surat::all();
-        return view('surat.index', compact('surat'));
+        $surat = Surat::all(); // Ambil semua data dari tabel surats
+        return view('surat.index', compact('surat')); // Kirim ke index.blade.php
     }
 
-    public function create()
-    {
-        return view('surat.create');
-    }
-
+    // Menyimpan surat baru ke database
     public function store(Request $request)
     {
+        // Validasi input dari user
         $request->validate([
             'NIK' => 'required|size:16|exists:warga,NIK',
             'Nama_Lengkap' => 'required|string|max:100',
@@ -32,13 +30,16 @@ class SuratController extends Controller
             'NIK.exists' => 'NIK tidak ditemukan dalam data warga.',
             'Jenis_Surat.required' => 'Silakan pilih jenis surat yang ingin diajukan.',
         ]);
-
+        
+        // Ambil data warga berdasarkan NIK
         $warga = Warga::where('NIK', $request->NIK)->first();
 
+        // Cek apakah Nama_Lengkap sesuai dengan NIK
         if ($warga->Nama !== $request->Nama_Lengkap) {
             return back()->with('error', 'Nama tidak sesuai dengan NIK yang terdaftar.')->withInput();
         }
 
+        // Simpan data surat ke database
         Surat::create([
             'NIK' => $request->NIK,
             'Nama_Lengkap' => $request->Nama_Lengkap,
@@ -47,6 +48,7 @@ class SuratController extends Controller
             'Tanggal_Pengajuan' => now(),
         ]);
 
+        // Redirect ke halaman index surat dengan pesan sukses
         return redirect()->route('surat.index')->with('success', 'Pengajuan surat berhasil direkam!');
     }
 }
