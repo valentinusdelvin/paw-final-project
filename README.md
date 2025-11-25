@@ -1,6 +1,6 @@
 # 📘 Panduan Pengerjaan Proyek Kelompok
 
-Hai freen! 👋  
+Hai freeen! 👋  
 Ini panduan tata cara ngerjain projek PAW, tolong dibaca bener bener yaaa,
 kalo ada bingung bisa langsung tanya aja di grup
 
