@@ -9,6 +9,12 @@ use Illuminate\Http\Request;
 class DataController extends Controller
 {
     // --- Pendataan Warga ---
+     public function indexWarga()
+    {
+        $warga = Warga::all();
+
+        return view('warga.index', compact('warga'));
+    }
 
     public function createWarga()
     {

@@ -28,11 +28,15 @@ Route::get('/surat', [SuratController::class, 'index'])->name('surat.index');
 Route::post('/surat', [SuratController::class, 'store'])->name('surat.store');
 
 
+//Routes Warga
 Route::get('/warga/tambah', [DataController::class, 'createWarga']);
+Route::get('/warga', [DataController::class, 'indexWarga']);
 Route::post('/warga', [DataController::class, 'storeWarga']);
 
-Route::get('/iuran/tambah', [IuranController::class, 'createIuran']);
-Route::post('/iuran', [IuranController::class, 'storeIuran']);
+//Routes Iuran
+Route::get('/iuran', [IuranController::class, 'indexIuran'])->name('iuran.index');
+Route::get('/iuran/tambah', [IuranController::class, 'createIuran'])->name('iuran.create');
+Route::post('/iuran', [IuranController::class, 'storeIuran'])->name('iuran.store');
 
 // Routes Aduan
 Route::resource('aduan', AduanController::class);
