@@ -6,6 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <title>Aplikasi RT Terpadu - TI D</title>
 
 <style>
     body {
@@ -95,7 +96,7 @@
             </div>
 
             <!-- punya kelompok 2 -->
-            <div class="card" onclick="window.location.href='{{ route('aduan.index') }}'">
+            <div class="card" onclick="window.location.href='aduan'">
                 <h3>Aduan Warga</h3>
                 <p>Terima dan tindaklanjuti aduan warga untuk meningkatkan kualitas lingkungan RT.</p>
             </div>
@@ -110,7 +111,7 @@
             </div>
 
             <!-- punya kelompok 2 -->
-            <div class="card" onclick="window.location.href='{{ route('pengumuman.index') }}'">
+            <div class="card" onclick="window.location.href='pengumuman'">
                 <h3>Pengumuman Warga</h3>
                 <p>Publikasikan informasi penting dan pengumuman untuk seluruh warga RT.</p>
             </div>

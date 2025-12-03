@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+    container_name: paw-app
+    ports:
+      - "8002:8002"
+    env_file:
+      - .env
+    depends_on:
+      - mysql
+    volumes:
+      - .:/app
+    command: php artisan serve --host=0.0.0.0 --port=8002
+
+  mysql:
+    image: mysql:8.0
+    container_name: paw-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: pawdb
+      MYSQL_USER: pawuser
+      MYSQL_PASSWORD: pawpass
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysqldata:/var/lib/mysql
+
+volumes:
+  mysqldata:
+
