@@ -43,8 +43,28 @@ Jalankan command berikut untuk generate application key sehingga website dapat d
 ```bash
 php artisan key:generate
 ```
-
 ---
+
+## 🌟 Khusus Production (**PENTING**)
+### Setelah clone repository ini, 
+```bash
+git clone https://github.com/valentinusdelvin/paw-final-project.git
+```
+
+### Pastikan sudah memiliki **docker**
+Lalu jalankan command ini
+```bash
+docker compose up -d --build
+---
+
+### Migrate database di dalam docker container-nya
+```bash
+# Di CLI
+docker exec -it paw-app bash 
+
+# Di dalam shell container
+php artisan migrate
+```
 
 ## 🧑‍💻 Alur Pengerjaan
 
